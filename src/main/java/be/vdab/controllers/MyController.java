@@ -34,11 +34,11 @@ public class MyController {
 //        carRepository.save(car);
 //    }
 //
-//    @RequestMapping(value = "/delete", method = RequestMethod.PUT)
-//    public void deleteCar(Car car) {
-//        carRepository.delete(car.getId());
-//    }
-//
+@RequestMapping(value = "/car/{carId}", method = RequestMethod.DELETE)
+public void deleteCar(@PathVariable("carId") int id) {
+    carRepository.delete(id);
+}
+
 //
 //    // TODO: update functie uitwerken
 //

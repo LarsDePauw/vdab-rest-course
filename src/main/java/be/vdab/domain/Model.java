@@ -1,20 +1,29 @@
 package be.vdab.domain;
 
-public class Model {
-    private Car car;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import java.util.List;
 
-    public Model(Car car) {
-        this.car = car;
+public class Model {
+    @ManyToOne
+    private Brand brand;
+    private List<Car> cars;
+
+    public Model(Brand brand) {
+        this.brand = brand;
     }
 
     public Model() {
     }
 
-    public Car getCar() {
-        return car;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 }
+

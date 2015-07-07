@@ -1,22 +1,35 @@
 package be.vdab.domain;
 
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 public class Brand {
-    private List<Model> models;
+    private String name;
+    private String address;
 
-    public Brand() {
+    public Brand(String name) {
+        this.name = name;
     }
 
-    public Brand(List<Model> models) {
-        this.models = models;
+    public Brand(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
-    public List<Model> getModels() {
-        return models;
+    public String getName() {
+        return name;
     }
 
-    public void setModels(List<Model> models) {
-        this.models = models;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
