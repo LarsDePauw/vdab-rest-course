@@ -36,28 +36,22 @@ public class MyController {
     public void deleteCar(@PathVariable("carId") int id) {
         carRepository.delete(id);
     }
-//    TODO: update functie uitwerken
-//
-//    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-//    public void updateCar(Car car) {
-//        Car c = carRepository.findOne(car.getId());
-//
-//    @RequestMapping(value = "/newcar", method = RequestMethod.POST, consumes = "application/json")
-//    public void createCar(@RequestBody Car car) {
-//        carRepository.save(car);
-//    }
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
+
+    @RequestMapping(value = "/update/car", method = RequestMethod.PUT, consumes = "application/json")
+    public void updateCar(Car car) {
+        carRepository.save(car);
+    }
+
+
+    @RequestMapping(value = "/newcar", method = RequestMethod.POST, consumes = "application/json")
+    public void createCar(@RequestBody Car car) {
+        carRepository.save(car);
+    }
 
     @RequestMapping(value = "/brand/all", method = RequestMethod.GET)
     public List<Brand> findAllBrands() {
         return brandRepository.findAll();
     }
-
-    //@RequestMapping (value = "model/all")
-
-
-
 
 }
 
