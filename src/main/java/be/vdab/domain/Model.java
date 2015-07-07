@@ -12,12 +12,23 @@ public class Model {
     private Brand brand;
     @OneToMany
     private List<Car> cars;
+    private String name;
 
-    public Model(Brand brand) {
+    public Model(Brand brand, List<Car> cars, String name) {
         this.brand = brand;
+        this.cars = cars;
+        this.name = name;
     }
 
     public Model() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Brand getBrand() {
@@ -26,6 +37,22 @@ public class Model {
 
     public void setBrand(Brand brand) {
         this.brand = brand;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

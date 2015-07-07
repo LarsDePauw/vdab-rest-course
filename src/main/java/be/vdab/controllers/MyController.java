@@ -2,7 +2,9 @@ package be.vdab.controllers;
 
 import be.vdab.domain.Brand;
 import be.vdab.domain.Car;
+import be.vdab.repository.BrandRepository;
 import be.vdab.repository.CarRepository;
+import be.vdab.repository.ModelRepository;
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import java.util.List;
 public class MyController {
     @Autowired
     private CarRepository carRepository;
+    private ModelRepository modelRepository;
+    private BrandRepository brandRepository;
 
 
     @RequestMapping(value = "/car/all", method = RequestMethod.GET)
@@ -33,32 +37,26 @@ public class MyController {
         carRepository.delete(id);
     }
 
+    @RequestMapping(value = "brand/all", method = RequestMethod.GET)
+    public List<Brand> findAllBrands() {
+        return brandRepository.findAll();
+    }
+
+
 //    TODO: update functie uitwerken
 //
 //    @RequestMapping(value = "/update", method = RequestMethod.PUT)
 //    public void updateCar(Car car) {
 //        Car c = carRepository.findOne(car.getId());
+
 //    }
-//    @RequestMapping(value = "/newcar", method = RequestMethod.POST)
-//    public void createCar() {
-//        Car car = new Car();
+
+
+//
+//    @RequestMapping(value = "/newcar", method = RequestMethod.POST, consumes = "application/json")
+//    public void createCar(@RequestBody Car car) {
 //        carRepository.save(car);
 //    }
-
-    @RequestMapping(value = "brand/all", method = RequestMethod.GET)
-    public List<Brand> findAllBrands() {
-        return null;
-    }
-
-
-
-
-
-
-
-
-
-
 
 
 }

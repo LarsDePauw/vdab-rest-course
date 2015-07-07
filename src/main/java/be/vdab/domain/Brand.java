@@ -16,11 +16,14 @@ public class Brand {
     private String address;
     @OneToMany
     private List<Model> models;
+    @OneToMany
+    private List<Car> cars;
 
-    public Brand(String name, String address, List<Model> models) {
+    public Brand(String name, String address, List<Model> models, List<Car> cars) {
         this.name = name;
         this.address = address;
         this.models = models;
+        this.cars = cars;
     }
 
     public Brand() {
@@ -56,5 +59,13 @@ public class Brand {
 
     public void setModels(List<Model> models) {
         this.models = models;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }

@@ -11,12 +11,13 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String colour;
-    private String brand;
+    @ManyToOne
+    private Brand brand;
     private String licensePlate;
     @ManyToOne
     private Model model;
 
-    public Car(String colour, String brand, Model model, String licenseplate) {
+    public Car(String colour, Brand brand, Model model, String licenseplate) {
         this.colour = colour;
         this.brand = brand;
         this.model = model;
@@ -38,11 +39,11 @@ public class Car {
         this.colour = colour;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
