@@ -1,5 +1,6 @@
 package be.vdab.controllers;
 
+import be.vdab.domain.Brand;
 import be.vdab.domain.Car;
 import be.vdab.repository.CarRepository;
 import org.jboss.logging.annotations.Param;
@@ -16,7 +17,7 @@ public class MyController {
     private CarRepository carRepository;
 
 
-    @RequestMapping(value = "/cars", method = RequestMethod.GET)
+    @RequestMapping(value = "/car/all", method = RequestMethod.GET)
     public List<Car> findAllCars() {
         return carRepository.findAll();
     }
@@ -27,24 +28,38 @@ public class MyController {
         return carRepository.findOne(id);
     }
 
+    @RequestMapping(value = "/car/{carId}", method = RequestMethod.DELETE)
+    public void deleteCar(@PathVariable("carId") int id) {
+        carRepository.delete(id);
+    }
 
-//    @RequestMapping(value = "/newcar", method = RequestMethod.POST)
-//    public void createCar() {
-//        Car car = new Car();
-//        carRepository.save(car);
-//    }
-//
-@RequestMapping(value = "/car/{carId}", method = RequestMethod.DELETE)
-public void deleteCar(@PathVariable("carId") int id) {
-    carRepository.delete(id);
-}
-
-//
-//    // TODO: update functie uitwerken
+//    TODO: update functie uitwerken
 //
 //    @RequestMapping(value = "/update", method = RequestMethod.PUT)
 //    public void updateCar(Car car) {
 //        Car c = carRepository.findOne(car.getId());
 //    }
+//    @RequestMapping(value = "/newcar", method = RequestMethod.POST)
+//    public void createCar() {
+//        Car car = new Car();
+//        carRepository.save(car);
+//    }
+
+    @RequestMapping(value = "brand/all", method = RequestMethod.GET)
+    public List<Brand> findAllBrands() {
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
