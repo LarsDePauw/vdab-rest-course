@@ -10,13 +10,11 @@ public class Model {
     private int id;
     @ManyToOne
     private Brand brand;
-    @OneToMany
-    private List<Car> cars;
+
     private String name;
 
-    public Model(Brand brand, List<Car> cars, String name) {
+    public Model(Brand brand, String name) {
         this.brand = brand;
-        this.cars = cars;
         this.name = name;
     }
 
@@ -39,13 +37,6 @@ public class Model {
         this.brand = brand;
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
 
     public String getName() {
         return name;
@@ -53,6 +44,10 @@ public class Model {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String toString() {
+        return "model: " + name;
     }
 }
 
