@@ -22,30 +22,29 @@ public class MyController {
     }
 
 
-/*
-    @RequestMapping(value = "/{car}", method = RequestMethod.GET)
-    public Car findCarById(Integer id) {
+    @RequestMapping(value = "/car/{carId}", method = RequestMethod.GET)
+    public Car findCarById(@PathVariable("carId") int id) {
         return carRepository.findOne(id);
     }
 
 
-    @RequestMapping(value = "/newcar", method = RequestMethod.POST)
-    public void createCar() {
-        Car car = new Car();
-        carRepository.save(car);
-    }
+//    @RequestMapping(value = "/newcar", method = RequestMethod.POST)
+//    public void createCar() {
+//        Car car = new Car();
+//        carRepository.save(car);
+//    }
+//
+//    @RequestMapping(value = "/delete", method = RequestMethod.PUT)
+//    public void deleteCar(Car car) {
+//        carRepository.delete(car.getId());
+//    }
+//
+//
+//    // TODO: update functie uitwerken
+//
+//    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+//    public void updateCar(Car car) {
+//        Car c = carRepository.findOne(car.getId());
+//    }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.PUT)
-    public void deleteCar(Car car) {
-        carRepository.delete(car.getId());
-    }
-
-
-    // TODO: update functie uitwerken
-
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public void updateCar(Car car) {
-        Car c = carRepository.findOne(car.getId());
-    }
-*/
 }
