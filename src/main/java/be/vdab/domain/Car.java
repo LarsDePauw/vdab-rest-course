@@ -4,27 +4,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@XmlRootElement
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String colour;
     private String brand;
-    private String model;
+    private String licensePlate;
 
+ //  private Model model;
+
+    public Car(String colour, String brand, Model model, String licenseplate) {
+        this.colour = colour;
+        this.brand = brand;
+  //      this.model = model;
+        this.licensePlate = licenseplate;
+    }
 
     public Car() {
     }
 
-    public Car(String colour, String brand, String model) {
-        this.brand = brand;
-        this.model = model;
-        this.colour = colour;
+    public Integer getId() {
+        return id;
     }
 
     public String getColour() {
@@ -43,16 +49,24 @@ public class Car {
         this.brand = brand;
     }
 
-    public String getModel() {
-        return model;
+// //   public Model getModel() {
+// //       return model;
+//    }
+
+//    public void setModel(Model model) {
+//        this.model = model;
+//    }
+
+    public String getLicenseplate() {
+        return licensePlate;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setLicenseplate(String licenseplate) {
+        this.licensePlate = licenseplate;
     }
 
     public String toString() {
-        return "brand: " + brand + ", model: " + model + ", colour: " + colour + "\n";
+        return "brand: " + brand + ", model: " /*+ model */+ ", colour: " + colour + "\n";
     }
 
 }
